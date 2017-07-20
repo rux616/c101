@@ -1,0 +1,54 @@
+Name:			Dan Cassidy
+Date:			2013-09-30
+Homework #:		05
+Problem #:		01
+Source File:	HW05Algorithm01.txt
+Class:			C-101 MW 1030
+
+[Inputs]
+char Ch
+
+[Outputs]
+Ch
+(int)Ch
+NumUpper
+NumLower
+NumDigit
+NumOther
+
+[Equations]
+NumUpper = NumUpper + 1
+NumLower = NumLower + 1
+NumDigit = NumDigit + 1
+NumOther = NumOther + 1
+
+[Limits]
+Stop when Ch == '#'
+
+[Algorithm]
+output "<description and instructions>"
+output "Please enter a character: "
+input Ch
+
+while (Ch != '#')
+	output "Character '", Ch, "'   ||   ASCII ", (int)Ch, "   ||   Followed by '", (char)(Ch + 1), "', '",
+		(char)(Ch + 2), "'"
+	
+	if (Ch >= 48 AND Ch <= 57) then
+		inc NumDigit
+	else if (Ch >= 65 AND Ch <= 90) then
+		inc NumUpper
+	else if (Ch >= 97 AND Ch <= 122) then
+		inc NumLower
+	else
+		inc NumOther
+
+	output "Please enter a character: "
+	input Ch
+end while
+
+output "Number of characters entered:"
+output "    Upper Case: ", NumUpper
+output "    Lower Case: ", NumLower
+output "    Digit:      ", NumDigit
+output "    Other:      ", NumOther

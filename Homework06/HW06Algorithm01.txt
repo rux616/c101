@@ -1,0 +1,88 @@
+Name:			Dan Cassidy
+Date:			2013-10-08
+Homework #:		06
+Problem #:		01
+Source File:	HW06Algorithm01.txt
+Class:			C-101 MW 1030
+Special:		DO NOT PRINT
+
+[Inputs]
+Choice
+Miles
+Gallons
+TotalSeconds
+Number
+
+[Outputs]
+float MilesPerGallon
+int Minutes
+int Seconds
+bool IsPrime
+
+[Equations]
+MilesPerGallon = Miles / Gallons
+Minutes = TotalSeconds div 60
+Seconds = TotalSeconds mod 60
+MaxDivisor = Number div 2
+(in a loop) Number mod Divisor
+
+[Limits]
+Miles >= 0 (Not Tested)
+Gallons > 0 (Not Tested)
+TotalSeconds >= 0 (Not Tested)
+Number >= 0 (Not Tested)
+Stop when Choice == 4
+
+[Algorithm]
+(Miles per Gallon)
+output "<description and instructions>"
+
+output "Enter miles: "
+input Miles
+output "Enter gallons: "
+input Gallons
+
+if (Gallons != 0) then
+	MilesPerGallon = (float)Miles / (float)Gallons
+end if
+
+output "Miles per Gallon: ", MilesPerGallon
+Pause
+
+(Total Seconds to Minutes)
+output "<description and instructions>"
+
+output "Enter total number of seconds: "
+input TotalSeconds
+
+Minutes = TotalSeconds div 60
+Seconds = TotalSeconds mod 60
+
+output Minutes, " minutes, ", Seconds, " seconds"
+Pause
+
+(Determine if Prime)
+IsPrime = true
+output "<description and instructions>"
+
+output "Enter a number: "
+input Number
+
+if (Number == 0 OR Number == 1) then
+	IsPrime = false
+end if
+
+MaxDivisor = Number div 2
+for (Divisor = 2 to MaxDivisor)
+	IsPrime = (Number mod Divisor) != 0
+	if (!IsPrime)
+		break
+	end if
+end for
+
+if (IsPrime) then
+	output Number, " is a prime"
+else
+	output Number, " is not a prime"
+end if
+Pause

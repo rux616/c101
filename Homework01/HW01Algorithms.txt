@@ -1,0 +1,186 @@
+Name: Dan Cassidy
+Date: 2013-09-06
+Homework #: 01
+
+
+
+1) We want to know how many cubic feet, or the volume, are in a rectangular solid of a given Height, Width,
+  and Length. ( Hint , the Height, Width and Length are inputs to problem, and the cubic foot is the
+  output, and number of cubic feet is equal to Length times Width times Height )
+
+[Inputs]
+Height
+Width
+Length
+
+[Outputs]
+Volume
+
+[Equations]
+Volume = Height * Width * Length
+
+[Limits]
+Height > 0
+Width > 0
+Length > 0
+
+[Algorithm]
+output "Enter height: "
+input Height
+output "Enter width: "
+input Width
+output "Enter length: "
+input Length
+if (Height > 0 AND Width > 0 AND Length > 0) then
+	output "Volume: ", Height * Width * Length
+else
+	output "Sorry, all values must be greater than 0."
+end if
+
+
+
+2) Given the Radius (R) of a circle you want to calculate the Area (A) and Circumference (C) of that
+   circle. The equations are for Area, A = pi*R^2 and Circumference, C = 2*pi*R.
+
+[Inputs]
+Radius
+
+[Outputs]
+Area
+Circumference
+
+[Equations]
+Area = PI * Radius * Radius
+Circumference = 2 * PI * Radius
+
+[Limits]
+Radius > 0
+
+[Algorithm]
+output "Enter radius: "
+input Radius
+if (Radius > 0) then
+	PI = 3.14159265359
+	output "Area: ", PI * Radius * Radius
+	output "Circumference: ", 2 * PI * Radius
+else
+	output "Sorry, the radius must be greater than 0."
+end if
+
+
+
+3) User enters an integer and problem tells user if the number is between 1 and 100, and if it is then
+   display “Good Input”, else displays “Bad Input”.
+
+[Inputs]
+Number
+
+[Outputs]
+"Good Input"
+"Bad Input"
+
+[Equations]
+Number >= 1
+Number <= 100
+
+[Limits]
+Number == Integer
+
+[Algorithm]
+output "Please enter a number between 1 and 100: "
+input Number
+if (Number >= 1 AND Number <= 100) then
+	output "Good Input"
+else
+	output "Bad Input"
+end if
+
+
+
+4) A problem that will convert a total number of days into the corresponding number of years and days left
+   over. For example, if you enter 1254 days, then it would display “3 years and 159 days”. (Hint, there
+   are 365 days in one year, and use the / (div) and % (mod) operators)
+
+[Inputs]
+NumberOfDays
+
+[Outputs]
+Years
+DaysLeft
+
+[Equations]
+Years = NumberOfDays div 365
+DaysLeft = NumberOfDays mod 365
+
+[Limits]
+NumberOfDays >= 0
+NumberOfDays == Integer
+
+[Algorithm]
+output "Enter number of days: "
+input NumberOfDays
+if (NumberOfDays >= 0) then
+	output NumberOfDays div 365, " years and ", NumberOfDays mod 365, " days"
+else
+	output "Sorry, you can't have a negative number of days."
+else if
+
+
+
+5) A problem that determines if an entered number is negative or positive, and continues to have user enter
+   numbers and display appropriate response until user enters a zero. Will keep looping until the user
+   enters 0.
+
+[Inputs]
+Number
+
+[Outputs]
+"Positive"
+"Negative"
+
+[Equations]
+Number > 0
+Number < 0
+
+[Limits]
+Stop at Number == 0
+
+[Algorithm]
+do
+	output "Please enter a number: "
+	input Number
+	if (Number > 0) then
+		output "Positive"
+	else if (Number < 0) then
+		output "Negative"
+	end if
+while (Number != 0)
+
+
+
+6) A problem that has user continue to enter weight of people and keeps a running total weight of all the
+   people and also keeps track of the number of people entered. This will continue until a weight entered
+   is less then or equal to zero. Problem will then display the average weight of all the people.
+
+[Inputs]
+Weight
+
+[Outputs]
+AverageWeight
+
+[Equations]
+AverageWeight = TotalWeight / NumberOfPeople
+
+[Limits]
+Stop at Weight <= 0
+
+[Algorithm]
+do
+	output "Enter weight: "
+	input Weight
+	if (Weight > 0) then
+		TotalWeight = TotalWeight + Weight
+		NumberOfPeople++
+	end if
+while (Weight > 0)
+output "Average weight: ", TotalWeight / NumberOfPeople

@@ -1,0 +1,52 @@
+Name:			Dan Cassidy
+Date:			2013-09-16
+Homework #:		03
+Source File:	HW03Algorithms1.txt
+Class:			C-101 MW 1030
+
+
+
+3) Write just a program that will accept any two integers in the range -180 to 180, make sure to test first
+   that input is in this range.  The program will then display the product and then the division of these
+   two numbers.  The division will show the quotient and remainder.  The output needs to look as close as
+   possible to the example below.  Turn in test runs with numbers of 125 and 34, then test 157 and 16.
+
+	Enter two integers between -180 and 180 --> 125  34
+
+	  125           3 R 23
+	x  34         _____
+	-----      34|125
+	 4250
+
+[Inputs]
+Number1
+Number2
+
+[Outputs]
+Product
+Quotient
+Remainder
+
+[Equations]
+Product = Number1 * Number2
+Quotient = Number1 div Number2
+Remainder = Number1 mod Number2
+
+[Limits]
+-180 <= Number1 <= 180
+-180 <= Number2 <= 180
+
+[Algorithm]
+output "Enter two integers between -180 and 180 --> "
+input Number1, Number2
+
+if ((-180 <= Number1) AND (Number1 <= 180) AND (-180 <= Number2) AND (Number2 <= 180)) then
+	Product = Number1 * Number2
+	Quotient = Number1 div Number2
+	Remainder = Number1 mod Number2
+
+	output Number1, "\t\t" Quotient, " R ", Remainder
+	output "x", Number2, "\t\t_____"
+	output "-----\t\t", Number2, "|", Number1
+	output Product
+end if

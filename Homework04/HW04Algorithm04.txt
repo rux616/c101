@@ -1,0 +1,32 @@
+Name:			Dan Cassidy
+Date:			2013-09-23
+Homework #:		04
+Problem #:		04
+Source File:	HW04Algorithm04.txt
+Class:			C-101 MW 1030
+
+[Inputs]
+Number
+
+[Outputs]
+Sum
+
+[Equations]
+Sum = Sum + (Number mod 10)		(in a loop)
+Number = Number div 10			(in a loop)
+
+[Limits]
+Number > 0 (Not checked)
+
+[Algorithm]
+output "<Description and Instructions>"
+
+output "Enter a positive integer: "
+input Number
+
+do
+	Sum = Sum + (Number mod 10)
+	Number = Number div 10
+while (Number != 0)
+
+output "The sum of the number's digits is: ", Sum

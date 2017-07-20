@@ -1,0 +1,128 @@
+Name:			Dan Cassidy
+Date:			2013-09-10
+Homework #:		02
+Source File:	HW02Algorithms.txt
+Class:			C-101 MW 1030
+
+
+
+5) Workers at a company have won a 7.6% annual pay increase, which will be retroactive for six months.
+   Write an algorithm, then a program, that takes an employee's previous annual salary as input, and
+   outputs the amount of retroactive pay due to the employee, the new annual salary, and the new monthly
+   salary.  Test program with following three salaries of $35,000, $46,500, and $52,450.  Output from the
+   program should look close to the following and should have $ sign as well:
+
+Please enter employee's salary --> 35000
+
+Retroactive Pay    --> $1330
+New Annual Salary  --> $37660
+New Monthly Salary --> $3138.33
+
+[Inputs]
+OldAnnualSalary
+
+[Outputs]
+RetroactivePay
+NewAnnualSalary
+NewMonthlySalary
+
+[Equations]
+NewAnnualSalary = OldAnnualSalary * 1.076
+NewMonthlySalary = NewAnnualSalary / 12.0
+RetroactivePay = (NewAnnualSalary - OldAnnualSalary) / 2.0
+
+[Limits]
+OldMonthlySalary >= 0
+
+[Algorithm]
+output "<Description/Instructions>"
+output "Please enter employee's salary --> "
+input OldAnnualSalary
+
+if (OldAnnualSalary >= 0) then
+	NewAnnualSalary = OldAnnualSalary * 1.076
+	NewMonthlySalary = NewAnnualSalary / 12.0
+	RetroactivePay = (NewAnnualSalary - OldAnnualSalary) / 2.0
+	
+	output "Retroactive Pay    --> $", RetroactivePay
+	output "New Annual Salary  --> $", NewAnnualSalary
+	output "New Monthly Salary --> $", NewMonthlySalary
+else
+	output "Sorry, you can't have a negative salary."
+end if
+
+
+
+6) All years that are evenly divisible by 400 are always a leap year.  They are also a leap year if they
+   are evenly divisible by 4 AND are not evenly divisible by 100.  For example, 1600 was a leap year
+   because it is evenly divisible by 400.  Likewise 1988 was a leap year because it was evenly divisible by
+   4 AND not evenly divisible by 100.  Write an algorithm to solve this problem for entering any year,
+   providing a positive integer.
+
+[Inputs]
+Year
+
+[Outputs]
+IsLeapYear
+
+[Equations]
+Year mod 4
+Year mod 100
+Year mod 400
+
+[Limits]
+Year > 0
+Year == Integer
+
+[Algorithm]
+output "<Description/Instructions>"
+output "Enter a year: "
+input Year
+
+if (Year > 0) then
+	if (Year mod 400 == 0 OR (Year mod 4 == 0 AND Year mod 100 != 0))
+		output Year, " is a leap year"
+	else
+		output Year, " is not a leap year"
+	end if
+else
+	output "Sorry, you can't have a negative year."
+end if
+
+
+
+7) A problem that has a user enter positive numbers and keeps record of how many even numbers are entered.
+   When user enters 0 problem stops and then displays the number of even numbers entered.  For example, if
+   user enters 3, 56, 4, 13, 779, 46 and 0, then problem would display something like "User entered 3 even
+   numbers".  You need to use a loop structure for this one.
+
+[Inputs]
+Number
+
+[Outputs]
+NumberOfEvens
+
+[Equations]
+Number mod 2
+
+[Limits]
+Number == Integer
+Stops when Number == 0
+
+[Algorithm]
+output "<Description/Instructions>"
+
+do
+	output "Enter a number: "
+	input Number
+
+	if (Number > 0) then
+		if (Number mod 2 == 0) then
+			NumberOfEvens++
+		end if
+	else if (Number < 0) then
+		output "Please enter positive numbers."
+	end if
+while (Number != 0)
+
+output "User entered ", NumberOfEvens, " even number(s)"

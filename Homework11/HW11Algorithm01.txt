@@ -1,0 +1,176 @@
+Name:			Dan Cassidy
+Date:			2013-11-18
+Homework #:		11
+Problem #:		01
+Source File:	HW11Algorithm01.txt
+Class:			C-101 MW 1030
+
+
+
+[Global Constants]
+int SIZE = 20
+
+
+
+Function void main(void)
+[Inputs]
+int Num1[SIZE], Num2[SIZE]
+char Continue
+
+[Outputs]
+int Sum[SIZE]
+
+[Equations]
+None
+
+[Limits]
+None
+
+[Algorithm]
+output "description and instructions"
+
+do
+	ZeroArray(Num1, SIZE)
+	ZeroArray(Num2, SIZE)
+	ZeroArray(Sum, SIZE)
+
+	output "Enter the first number: "
+	GetVBInt(Num1)
+	output "Enter the second number: "
+	GetVBInt(Num2)
+
+	SumVBInt(Num1, Num2, Sum)
+
+	DisplayResults(Num1, Num2, Sum)
+
+	output "Continue? Y or N: "
+	input Continue
+while (Continue == 'Y' OR Continue == 'y')
+
+
+
+Function void ZeroArray(int * Array, const int Size)
+[Inputs]
+val const int Size
+
+[Outputs]
+ptr int Array[]
+
+[Equations]
+None
+
+[Limits]
+Size should be the number of elements, not the max index
+
+[Algorithm]
+for Index = 0 to Size - 1, ++Index
+	Array[Index] = 0
+end for
+
+
+
+Function void GetVBInt(int * N)
+[Inputs]
+None
+
+[Outputs]
+ptr int N[]
+
+[Equations]
+None
+
+[Limits]
+None
+
+[Algorithm]
+const int CHAR_OFFSET = 48
+int Temp[SIZE] = {0}, Index = 0, IndexOffset
+char Ch
+
+cin.get(Ch)
+while (isdigit(Ch) AND Index < SIZE)
+	Temp[Index++] = Ch - CHAR_OFFSET
+	cin.get(Ch)
+end while
+
+IndexOffset = SIZE - Index
+
+for Index = Index - 1 to 0, --Index
+	N[Index + IndexOffset] = Temp[Index]
+end for
+
+
+
+Function void SumVBInt(const int * Num1, const int * Num2, int * Sum)
+[Inputs]
+ptr int Num1[]
+ptr int Num2[]
+
+[Outputs]
+ptr int Sum[]
+
+[Equations]
+Sum[Index] = (Num1[Index] + Num2[Index] + Carry) mod 10
+Carry = (Num1[Index] + Num2[Index] + Carry) div 10
+
+[Limits]
+None
+
+[Algorithm]
+for Index = SIZE - 1 to 0, --Index
+	Sum[Index] = (Num1[Index] + Num2[Index] + Carry) mod 10
+	Carry = (Num1[Index] + Num2[Index] + Carry) div 10
+end for
+
+
+
+Function void DisplayResults(const int * Num1, const int * Num2, const int * Sum)
+[Inputs]
+ptr int Num1[]
+ptr int Num2[]
+ptr int Sum[]
+
+[Outputs]
+None
+
+[Equations]
+None
+
+[Limits]
+None
+
+[Algorithm]
+ShowArray(Num1, SIZE)
+output "\n"
+
+ShowArray(Num2, SIZE)
+output "\n"
+
+for Count = 0 to SIZE - 1, ++Count
+	output "-"
+end for
+output "\n"
+
+ShowArray(Sum, SIZE)
+output "\n"
+
+
+
+Function void ShowArray(const int Array, const int Size)
+[Inputs]
+ptr const int Array[]
+val const int Size
+
+[Outputs]
+None
+
+[Equations]
+None
+
+[Limits]
+Size should be the number of elements, not the max index
+
+[Algorithm]
+for Index = 0 to Size - 1, ++Index
+	output Array[Index]
+end for

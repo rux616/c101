@@ -1,0 +1,40 @@
+Name:			Dan Cassidy
+Date:			2013-09-30
+Homework #:		05
+Problem #:		04
+Source File:	HW05Algorithm04.txt
+Class:			C-101 MW 1030
+Special:		DO NOT PRINT
+
+[Inputs]
+Number
+
+[Outputs]
+Affirmitive message if Number mod 3 == 0 AND Number mod 2 == 0, display Number mod 10.
+
+[Equations]
+Number mod 2
+Number mod 3
+Number mod 10
+
+[Limits]
+Number == Positive (Not tested)
+Stop when Number == 0
+
+[Algorithm]
+output "<description and instructions>"
+
+output "Enter a positive integer or '0' to quit: "
+input Number
+
+while (Number != 0)
+	if (Number mod 2 != 0 AND Number mod 3 == 0)
+		output "That number is both odd and evenly divisible by 3."
+		output "The rightmost digit of the number is ", Number mod 10, "."
+	else
+		output "Number does not work."
+	end if
+
+	output "Enter a positive integer or '0' to quit: "
+	input Number
+end while

@@ -1,0 +1,87 @@
+Name:			Dan Cassidy
+Date:			2013-09-16
+Homework #:		03
+Source File:	HW03Algorithms2.txt
+Class:			C-101 MW 1030
+
+
+
+4) A store is having a sale on shirts.  The shorts cost $15.75 individually, but if four to ten shirts are
+   bought they are only $12.50 a shirt, and if more than ten are purchased then they cost only $8 a shirt.
+   Have the problem calculate the price for all the shirts, the sales tax (at 6%), and the total price
+   based on the number of shirts purchased.  At least one of your inputs should test the number of shirts
+   at 9.  Also make sure to display all the data.  i.e. shirts sold, price of shirts, sales tax and total
+   price.
+
+[Inputs]
+NumberOfShirts
+
+[Outputs]
+NumberOfShirts
+PriceOfShirts
+SalesTax
+TotalPrice
+
+[Equations]
+PriceOfShirts = NumberOfShirts * PricePerShirt
+SalesTax = PriceOfShirts * SALES_TAX
+TotalPrice = PriceOfShirts + SalesTax
+
+[Limits]
+NumberOfShirts >= 0 (Not Tested)
+
+[Algorithm]
+SALES_TAX = 0.06
+output "<Description and Instructions>"
+output "Please enter the number of shirts you wish to buy: "
+input NumberOfShirts
+
+if (NumberOfShirts < 4) then
+	PricePerShirt = 15.75
+else if (NumberOfShirts <= 10) then
+	PricePerShirt = 12.5
+else
+	PricePerShirt = 8
+end if
+
+PriceOfShirts = NumberOfShirts * PricePerShirt
+SalesTax = PriceOfShirts * SALES_TAX
+TotalPrice = PriceOfShirts + SalesTax
+
+output "Number of shirts purchased: ", NumberOfShirts
+output "Price of shirts: $", PriceOfShirts
+output "Sales tax: $", SalesTax
+output "Total price: $", TotalPrice
+
+
+
+5) Solve a problem that has the user continually entering integers, one at a time, and assume these
+   integers are in the range of 0 to 10, but don't test for this, and calculates their sum until the sum is
+   over 35.  When done the sum and last numbered entered should be displayed.  You will need to use a loop
+   of some kind for this one.
+
+[Inputs]
+Number
+
+[Outputs]
+Sum
+Number
+
+[Equations]
+Sum += Number
+
+[Limits]
+Stop when Sum >= 35
+
+[Algorithm]
+Sum = 0
+output "<Description and Instructions>"
+
+do
+	output "Enter a number between 0 and 10: "
+	input Number
+	Sum += Number
+while (Sum < 35)
+
+output "Sum = ", Sum
+output "Last Number = ", Number

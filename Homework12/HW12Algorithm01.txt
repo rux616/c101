@@ -1,0 +1,101 @@
+Name:			Dan Cassidy
+Date:			2013-11-30
+Homework #:		12
+Problem #:		01
+Source File:	HW12Algorithm.txt
+Class:			C-101 MW 1030
+
+
+
+[Global Constants]
+MAX_LENGTH = 50
+
+
+
+Function void Upcase(char S[])
+[Inputs]
+ref char S[]
+
+[Outputs]
+ref char S[]
+
+[Equations]
+S[Index] -= 26
+
+[Limits]
+None
+
+[Algorithm]
+for Index = 0 to MAX_LENGTH - 1 AND S[Index] != '\0'
+	S[Index] = toupper(S[Index])
+end for
+
+
+
+Function void DeleteFirst(char S[])
+[Inputs]
+ref char S[]
+
+[Outputs]
+ref char S[]
+
+[Equations]
+
+
+[Limits]
+None
+
+[Algorithm]
+for Index = 1 to MAX_LENGTH - 1 OR S[Index - 1] != '\0'
+	S[Index - 1] = S[Index]
+end for
+
+
+
+Function void InsertBlank(char S[], int Pos)
+[Inputs]
+ref char S[]
+val int Pos
+
+[Outputs]
+ref char S[]
+
+[Equations]
+S[Index + 1] = S[Index]
+
+[Limits]
+0 <= Pos <= MAX_LENGTH - 1
+
+[Algorithm]
+for Index = MAX_LENGTH - 3 to Pos
+	S[Index + 1] = S[Index]
+end for
+S[Pos] = ' '
+
+
+
+Function int Position(char Ch, char S[])
+[Inputs]
+val char Ch
+ref char S[]
+
+[Outputs]
+return int
+
+[Equations]
+Pos = Index
+
+[Limits]
+None
+
+[Algorithm]
+int Pos = -1
+
+for Index = 0 to MAX_LENGTH OR S[Index] != '\0'
+	if (S[Index] == Ch) then
+		Pos = Index
+		break
+	end if
+end for
+
+return Pos

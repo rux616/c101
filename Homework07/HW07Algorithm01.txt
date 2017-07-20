@@ -1,0 +1,57 @@
+Name:			Dan Cassidy
+Date:			2013-10-16
+Homework #:		07
+Problem #:		01
+Source File:	HW07Algorithm01.txt
+Class:			C-101 MW 1030
+
+
+Function main
+[Inputs]
+TotalSeconds
+
+[Outputs]
+None
+
+[Equations]
+None
+
+[Limits]
+TotalSeconds > 0 (Not checked)
+Exit on TotalSeconds == 0
+
+[Algorithm]
+output "descript and instructions"
+
+output "Enter Total Seconds: "
+input TotalSeconds
+
+while (TotalSeconds > 0) do
+	DisplayTime(TotalSeconds)
+
+	output "Enter Total Seconds: "
+	input TotalSeconds
+end while
+
+
+Function DisplayTime
+[Inputs]
+TotalSeconds
+
+[Outputs]
+ExpandedTime
+
+[Equations]
+NumHours = NumSeconds div 3600
+NumMinutes = (NumSeconds div 60) - (NumHours * 60)
+NumSeconds = NumSeconds mod 60
+
+[Limits]
+TotalSeconds > 0 (Not checked)
+
+[Algorithm]
+NumHours = NumSeconds div 3600
+NumMinutes = (NumSeconds div 60) - (NumHours * 60)
+NumSeconds = NumSeconds mod 60
+
+output NumHours, ":", setw(2), NumMinutes, ":", setw(2), NumSeconds

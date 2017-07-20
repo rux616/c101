@@ -1,0 +1,128 @@
+Name:			Dan Cassidy
+Date:			2013-10-31
+Homework #:		09
+Problem #:		01
+Source File:	HW09Algorithm01.txt
+Class:			C-101 MW 1030
+
+
+
+Function void main(void)
+[Inputs]
+float Principal
+float AnnualInterestRate
+unsigned Years
+unsigned PaymentsPerYear
+char Continue
+
+[Outputs]
+Nothing
+
+[Equations]
+None
+
+[Limits]
+None
+
+[Algorithm]
+do
+	system("cls")
+	output "This program analyzes a loan to determine the monthly payments.\n"
+	output "===============================================================\n"
+
+	ReadLoanInfo(Principal, AnnualInterestRate, Years, PaymentsPerYear)
+
+	output "\n"
+	ShowTable(Principal, AnnualInterestRate, Years, PaymentsPerYear)
+
+	output "\n"
+	output "===============================================================\n"
+	output "Continue? Y or N: "
+	input Continue
+while (Continue == 'Y' OR Continue == 'y')
+
+
+
+Function void ReadLoanInfo(float &, float &, unsigned &, unsigned &)
+[Inputs]
+None
+
+[Outputs]
+ref float Principal
+ref float AnnualInterestRate
+ref unsigned Years
+ref unsigned PaymentsPerYear
+
+[Equations]
+AnnualInterestRate /= 100
+
+[Limits]
+None
+
+[Algorithm]
+output "Enter the principal:                       "
+input Principal
+output "Enter the annual interest rate:            "
+input AnnualInterestRate
+output "Enter the years:                           "
+input Years
+output "Enter the number of payments per year:     "
+input PaymentsPerYear
+
+AnnualInterestRate /= 100
+
+
+
+Function double MonthlyPayment(float, float, unsigned, unsigned)
+[Inputs]
+val float Principal
+val float AnnualInterestRate
+val unsigned Years
+val unsigned PaymentsPerYear
+
+[Outputs]
+return float MonthlyPayment
+
+[Equations]
+PeriodicInterestRate = AnnualInterestRate / PaymentsPerYear
+TotalPayments = Years * PaymentsPerYear
+MonthlyPayment = (Principal * PeriodicInterestRate) / (1 - pow(1 + PeriodicInterestRate, -TotalPayments))
+
+[Limits]
+AnnualInterestRate != 0
+PaymentsPerYear != 0
+Years != 0
+
+[Algorithm]
+PeriodicInterestRate = AnnualInterestRate / PaymentsPerYear
+TotalPayments = Years * PaymentsPerYear
+
+return (Principal * PeriodicInterestRate) / (1 - pow(1 + PeriodicInterestRate, -TotalPayments))
+
+
+
+Function void ShowTable(float, float, unsigned, unsigned)
+[Inputs]
+val float Principal
+val float AnnualInterestRate
+val unsigned Years
+val unsigned PaymentsPerYear
+
+[Outputs]
+None
+
+[Equations]
+None
+
+[Limits]
+None
+
+[Algorithm]
+output setiosflags(ios::fixed | ios::showpoint)
+output "Principal               $", setprecision(2), Principal
+output "Interest Rate           ", setprecision(2), AnnualInterestRate * 100, "%"
+output "Number of Years         ", Years
+output "Payments per Year:      ", PaymentsPerYear
+output "Number of Payments:     ", PaymentsPerYear * Years
+output "Monthly Payment         $", setprecision(2), MonthlyPayment(Principal, AnnualInterestRate, Years,
+	PaymentsPerYear)

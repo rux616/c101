@@ -1,0 +1,64 @@
+Name:			Dan Cassidy
+Date:			2013-10-08
+Homework #:		06
+Problem #:		02
+Source File:	HW06Algorithm02.txt
+Class:			C-101 MW 1030
+Special:		DO NOT PRINT
+
+[Inputs]
+None
+
+[Outputs]
+30 days of doubling amount
+
+[Equations]
+OldAmount = NewAmount
+NewAmount = OldAmount * 2
+
+[Limits]
+None
+
+[Algorithm]
+MAX_DAYS = 30
+COLUMNS_PER_ROW = 3
+COLUMN_SPACING = 4
+
+Amount = 0.01
+
+output "<description and instructions>"
+
+for (Count = 1 to COLUMNS_PER_ROW)
+	output "Day#       Amount   "
+	if (Count mod COLUMNS_PER_ROW != 0) then
+		for (Count = 1 to COLUMN_SPACING)
+			output " "
+		end for
+	else
+		output "\n"
+	end if
+end for
+
+for (Count = 1 to COLUMNS_PER_ROW)
+	output "----    ------------"
+	if (Count mod COLUMNS_PER_ROW != 0) then
+		for (Count = 1 to COLUMN_SPACING)
+			output " "
+		end for
+	else
+		output "\n"
+	end if
+end for
+
+for (Day = 1 to MAX_DAYS)
+	output " ", setw(2), Day, "     $ ", setw(10), Amount, "    "
+	if (Day mod COLUMNS_PER_ROW != 0) then
+		for (Count = 1 to COLUMN_SPACING)
+			output " "
+		end for
+	else
+		output "\n"
+	end if
+
+	Amount *= 2
+end for

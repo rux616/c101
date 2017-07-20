@@ -1,0 +1,58 @@
+Name:			Dan Cassidy
+Date:			2013-09-23
+Homework #:		04
+Problem #:		01
+Source File:	HW04Algorithm01.txt
+Class:			C-101 MW 1030
+
+[Inputs]
+LetterGrade1
+NumCredits1
+LetterGrade2
+NumCredits2
+
+[Outputs]
+GPA
+"You are doing poorly"
+"Congratulations, doing good"
+
+[Equations]
+TotalPoints = NumPoints1 * NumCredits1 + NumPoints2 * NumCredits2
+TotalCredits = NumCredits1 + NumCredits2
+GPA = TotalPoints / TotalCredits
+
+[Limits]
+LetterGradeX == 'A', 'B', 'C', 'D', 'F' (Not checked)
+NumCreditsX > 0 (Not checked)
+
+[Algorithm]
+output "<Description and Instructions>"
+
+output "Enter letter grade for first class --> "
+input LetterGrade1
+output "Enter number of credit hours for first class --> "
+input NumCredits1
+
+output "Enter letter grade for second class --> "
+input LetterGrade2
+output "Enter number of credit hours for second class --> "
+input NumCredits2
+
+NumPoints1 = ((int)LetterGrade1 - 69) * -1
+if (NumPoints1 < 0) then
+	NumPoints1 = 0
+NumPoints2 = ((int)LetterGrade2 - 69) * -1
+if (NumPoints2 < 0) then
+	NumPoints2 = 0
+TotalPoints = NumPoints1 * NumCredits1 + NumPoints2 * NumCredits2
+TotalCredits = NumCredits1 + NumCredits2
+GPA = TotalPoints / TotalCredits
+
+output LetterGrade1, "   ", NumCredits1
+output LetterGrade2, "   ", NumCredits2
+output "Your GPA = ", GPA
+
+if (GPA < 2.0) then
+	output "You are doing poorly"
+else if (GPA >= 3.5) then
+	output "Congratulations, doing good"

@@ -1,0 +1,40 @@
+Name:			Dan Cassidy
+Date:			2013-09-23
+Homework #:		04
+Problem #:		02
+Source File:	HW04Algorithm02.txt
+Class:			C-101 MW 1030
+
+[Inputs]
+None
+
+[Outputs]
+<First 40 Fibbonacci numbers, formatted>
+
+[Equations]
+NSubX = NSubXMinus1 + NSubXMinus2
+
+[Limits]
+None
+
+[Algorithm]
+SEQUENCE_LENGTH = 40
+COLUMNS_PER_ROW = 6
+
+NSubX = 0, NSubXMinus1 = 0, NSubXMinus2 = 0
+
+output "<Description and Instructions>"
+
+for (SequenceCount = 1 to SEQUENCE_LENGTH)
+	output NSubX
+
+	NSubXMinus2 = NSubXMinus1
+	NSubXMinus1 = NSubX
+	NSubX = NSubXMinus1 + NSubXMinus2
+
+	if (NSubX == 0) then
+		NSubX = 1
+	
+	if (SequenceCount mod COLUMNS_PER_ROW == 0) then
+		output endl
+end for

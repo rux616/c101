@@ -1,0 +1,219 @@
+Name:			Dan Cassidy
+Date:			2013-10-21
+Homework #:		08
+Problem #:		01
+Source File:	HW08Algorithm01.txt
+Class:			C-101 MW 1030
+Special:		DO NOT TURN IN
+
+
+Function main
+[Inputs]
+int Numerator1
+int Denominator1
+int Numerator2
+int Denominator2
+int NumeratorS
+int DenominatorS
+char Continue
+
+[Outputs]
+None
+
+[Equations]
+None
+
+[Limits]
+None
+
+[Algorithm]
+output "This program adds fractions."
+output "============================"
+do
+	ReadData(Numerator1, Denominator1, Numerator2, Denominator2)
+	SumFraction(Numerator1, Denominator1, Numerator2, Denominator2, NumeratorS, DenominatorS)
+	DisplayData(Numerator1, Denominator1, Numerator2, Denominator2, NumeratorS, DenominatorS)
+
+	output "----------------------------"
+	output "Continue? Y or N: "
+	input Continue
+while (Continue == 'Y' OR Continue == 'y')
+
+
+
+Function GCD
+[Inputs]
+int Num1
+int Num2
+
+[Outputs]
+RVDT int
+
+[Equations]
+Num2 = Num1 mod Num2 (loop)
+
+[Limits]
+None
+
+[Algorithm]
+int Temp
+while (Num2 != 0)
+	Temp = Num2
+	Num2 = Num1 mod Num2
+	Num1 = Temp
+end while
+
+return Num1
+
+
+
+Function ReadData
+[Inputs]
+None
+
+[Outputs]
+RefPar int Numerator1
+RefPar int Denominator1
+RefPar int Numerator2
+RefPar int Denominator2
+
+[Equations]
+None
+
+[Limits]
+None
+
+[Algorithm]
+output "Enter numerator 1:   "
+input Numerator1
+output "Enter denominator 1: "
+input Denominator1
+output "\n"
+output "Enter numerator 2:   "
+input Numerator2
+output "Enter denominator 2: "
+input Denominator2
+
+
+
+Function SumFraction
+[Inputs]
+int Numer1
+int Denom1
+int Numer2
+int Denom2
+
+[Outputs]
+RefPar int NumeratorS
+RefPar int DenominatorS
+
+[Equations]
+NumeratorS = (Numer1 * Denom2) + (Denom1 * Numer2)
+DenominatorS = Denom1 * Denom2
+GCD = GCD(NumeratorS, DenominatorS)
+NumeratorS /= GCD
+DenominatorS /= GCD
+
+[Limits]
+Numbers >= 0
+
+[Algorithm]
+NumeratorS = (Numer1 * Denom2) + (Denom1 * Numer2)
+DenominatorS = Denom1 * Denom2
+
+GCDLocal = GCD(NumeratorS, DenominatorS)
+if (GCDLocal == 0) then
+	GCDLocal = 1
+end if
+
+NumeratorS /= GCDLocal
+DenominatorS /= GCDLocal
+
+
+
+Function DisplayData
+[Inputs]
+int Numer1
+int Denom1
+int Numer2
+int Denom2
+int NumerS
+int DenomS
+
+[Outputs]
+None
+
+[Equations]
+None
+
+[Limits]
+None
+
+[Algorithm]
+N1Length = Numer1 >= 0 ? NumDigits(Numer1) : NumDigits(-Numer1) + 1
+D1Length = Denom1 >= 0 ? NumDigits(Denom1) : NumDigits(-Denom1) + 1
+N2Length = Numer2 >= 0 ? NumDigits(Numer2) : NumDigits(-Numer2) + 1
+D2Length = Denom2 >= 0 ? NumDigits(Denom2) : NumDigits(-Denom2) + 1
+NSLength = NumerS >= 0 ? NumDigits(NumerS) : NumDigits(-NumerS) + 1
+DSLength = DenomS >= 0 ? NumDigits(DenomS) : NumDigits(-DenomS) + 1
+
+F1Length = N1Length >= D1Length ? N1Length : D1Length
+F2Length = N2Length >= D2Length ? N2Length : D2Length
+FSLength = NSLength >= DSLength ? NSLength : DSLength
+
+output " "
+output " ", setw((F1Length + N1Length) / 2.0 + 0.5), Numer1,
+			setw((F1Length - N1Length) / 2.0 + 1), " "
+output "   "
+output " ", setw((F2Length + N2Length) / 2.0 + 0.5), Numer2,
+			setw((F2Length - N2Length) / 2.0 + 1), DummyChar, " "
+output "   "
+if (DenomS != 1 AND DenomS != -1) then
+	output " ", setw((FSLength + NSLength) / 2.0 + 0.5), NumerS
+end if
+
+output setfill('-'), "\n "
+output "-", setw(F1Length), DummyChar2, "-"
+output " + "
+output "-", setw(F2Length), DummyChar2, "-"
+output " = "
+if (DenomS != 1 AND DenomS != -1) then
+	output "-", setw(FSLength), DummyChar2, "-"
+else
+	output NumerS / DenomS
+end if
+
+output setfill(' '), "\n "
+output " ", setw((F1Length + D1Length) / 2.0 + 0.5), Denom1,
+			setw((F1Length + D1Length) / 2.0 - 0.5), DummyChar, " "
+output "   "
+output " ", setw((F2Length + D2Length) / 2.0 + 0.5), Denom2,
+			setw((F2Length + D2Length) / 2.0 - 0.5), DummyChar, " "
+output "   "
+if (DenomS != 1 AND DenomS != 1) then
+	output " ", setw((FSLength + DSLength) / 2.0 + 0.5), DenomS
+end if
+output "\n"
+
+
+
+
+Function NumDigits
+[Inputs]
+unsigned Num
+
+[Outputs]
+RVDT unsigned
+
+[Equations]
+None
+
+[Limits]
+Num >= 0
+
+[Algorithm]
+if (Num < 10) then
+	return 1
+end if
+
+return 1 + NumDigits(Num / 10);

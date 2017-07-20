@@ -1,0 +1,107 @@
+Name:			Dan Cassidy
+Date:			2013-11-05
+Homework #:		10
+Problem #:		01
+Source File:	HW10Algorithm01.txt
+Class:			C-101 MW 1030
+Special:		DO NOT PRINT
+
+
+
+Function void main(void)
+[Inputs]
+char Continue
+
+[Outputs]
+None
+
+[Equations]
+None
+
+[Limits]
+None
+
+[Algorithm]
+output "directions and instructions"
+
+do
+	output "Enter a number: "
+	Status = ReadInt(Number)
+
+	switch (Status)
+		case 1:
+			output "Error: Illegal Entry: Non-digit, non-whitespace leading character entered"
+			break
+
+		case 2:
+			output "Error: Overflow: Number entered is too large"
+			break
+
+		default:
+			output "The number entered was: ", Number
+
+	output "\nContinue? Y or N: "
+	input Continue
+while (Continue != 'N' AND Continue != 'n')
+
+
+
+Function unsigned short ReadInt(unsigned short &)
+[Inputs]
+None
+
+[Outputs]
+ref unsigned short Number
+return unsigned short ErrorCode
+
+[Equations]
+TempNumber = TempNumber * 10 + (Ch - CHAR_OFFSET)
+
+[Limits]
+First character must be numeric
+Number >= 0
+Number <= 65535
+
+[Algorithm]
+const CHAR_OFFSET = 48
+const MAX_NUMBER = 65535
+
+FirstDigitFound = false
+ExitLoop = false
+
+do
+	Ch = cin.peek()
+
+	if (isdigit(Ch)) then
+		cin.ignore(1)
+		if (!FirstDigitFound) then
+			FirstDigitFound = true
+			TempNumber = Ch - CHAR_OFFSET
+		else
+			TempNumber = TempNumber * 10 + (Ch - CHAR_OFFSET)
+		end if
+
+		if (TempNumber > MAX_NUMBER) then
+			ErrorCode = 2
+			ExitLoop = true
+		end if
+	else
+		if (FirstDigitFound) then
+			ErrorCode = 0
+			ExitLoop = true
+		else
+			if (isspace(Ch)) then
+				cin.ignore(1)
+			else
+				ErrorCode = 1
+				ExitLoop = true
+			end if
+		end if
+	end if
+while (!ExitLoop)
+
+cin.ignore(100,'\n')
+if (!ErrorCode) then
+	Number = TempNumber
+end if
+return ErrorCode

@@ -1,0 +1,67 @@
+Name:			Dan Cassidy
+Date:			2013-09-30
+Homework #:		05
+Problem #:		02
+Source File:	HW05Algorithm02.txt
+Class:			C-101 MW 1030
+
+[Inputs]
+Number1
+Number2
+Operand
+Continue
+
+[Outputs]
+"<Number1> <Operand> <Number2> = <Result>"
+
+[Equations]
+Result = Number1 + Number2
+Result = Number1 - Number2
+Result = Number1 * Number2
+Result = Number1 / Number2
+Result = Number1 % Number2
+
+[Limits]
+Number1 == Integer AND Number2 == Integer (inherent)
+Operand == '+' OR Operand == '-' OR Operand == '*' OR Operand == '/' OR Operand == '%'
+Stop when Continue == 'N' OR Continue == 'n'
+
+[Algorithm]
+output "<description and instructions>"
+
+do
+	output "Enter the first number: "
+	input Number1
+	output "Enter the second number: "
+	input Number2
+	output "Enter operand: "
+	input Operand
+
+	switch (Operand)
+		case '+':
+			Result = Number1 + Number2
+			output Number1, " ", Operand, " ", Number2, " = ", Result
+			break
+		case '-':
+			Result = Number1 - Number2
+			output Number1, " ", Operand, " ", Number2, " = ", Result
+			break
+		case '*':
+			Result = Number1 * Number2
+			output Number1, " ", Operand, " ", Number2, " = ", Result
+			break
+		case '/':
+			Result = Number1 / Number2
+			output Number1, " ", Operand, " ", Number2, " = ", Result
+			break
+		case '%':
+			Result = Number1 % Number2
+			output Number1, " ", Operand, " ", Number2, " = ", Result
+			break
+		default:
+			output "Illegal operand. Valid operands are +, -, *, /, and %."
+	end switch
+
+	output "Would you like to do another problem? Enter 'Y' for Yes or 'N' for No. "
+	input Continue
+while (Continue != 'N' AND Continue != 'n')

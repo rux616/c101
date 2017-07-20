@@ -1,0 +1,82 @@
+Name:			Dan Cassidy
+Date:			2013-10-16
+Homework #:		07
+Problem #:		02
+Source File:	HW07Algorithm02.txt
+Class:			C-101 MW 1030
+
+
+Function main
+[Inputs]
+unsigned int Number
+
+[Outputs]
+Even/Odd
+Summation
+
+[Equations]
+None
+
+[Limits]
+Number >= 1 AND Number <= 100
+
+[Algorithm]
+output "<description and instructions>"
+
+output "Enter a number from 1 to 100: "
+input Number
+
+while (Number >= 1 AND Number <= 100)
+	output "The number ", Number
+
+	if (IsEven(Number)) then
+		output " is even "
+	else
+		output " is odd "
+	end if
+
+	output "and sums to ", SimpleSummation(Number)
+
+	output "Enter a number from 1 to 100: "
+	input Number
+end while
+
+
+Function IsEven
+[Inputs]
+unsinged int N
+
+[Outputs]
+bool
+
+[Equations]
+IsEven != N % 2
+
+[Limits]
+N > 0
+
+[Algorithm]
+return !(N % 2)
+
+
+Function SimpleSummation
+[Inputs]
+int N
+
+[Outputs]
+int
+
+[Equations]
+Summation = Summation + LCV
+
+[Limits]
+N > 0
+
+[Algorithm]
+Summation = 0
+
+for (Index = 1 to N)
+	Summation += Index
+end for
+
+return Summation
